@@ -1,10 +1,11 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { TabContent, TabPane, Nav, Row, Col } from 'reactstrap'
 import TabNavItem from './TabNavItem'
 import DressCard from './DressCard'
 import SelectedDresses from '../containers/SelectedDressesConnected'
 
-export default class MainSection extends React.Component {
+class MainSection extends React.Component {
   constructor (props) {
     super(props)
 
@@ -100,7 +101,7 @@ export default class MainSection extends React.Component {
               <TabPane tabId='new'>
                 <Row>
                   <Col>
-                    {newClothes.map((dress) => {
+                    {newClothes.map((dress, index) => {
                       const { title, image, selected, shortlisted,
                         selectedBySelf } = dress
                       return (
@@ -112,6 +113,7 @@ export default class MainSection extends React.Component {
                           onShortlistHandler={() => { this.shortlistDress(dress, 'new') }}
                           onSelectHandler={() => { this.selectDress(dress, 'new') }}
                           selectedBySelf={selectedBySelf}
+                          key={`newDresses${index}`}
                         />)
                     })}
                   </Col>
@@ -119,7 +121,7 @@ export default class MainSection extends React.Component {
               </TabPane>
 
               <TabPane tabId='existing'>
-                {existingClothes.map((dress) => {
+                {existingClothes.map((dress, index) => {
                   const { title, image, selected, shortlisted, isAvailable, selectedBySelf } = dress
                   return (
                     <DressCard
@@ -131,6 +133,7 @@ export default class MainSection extends React.Component {
                       onShortlistHandler={() => { this.shortlistDress(dress, 'existing') }}
                       onSelectHandler={() => { this.selectDress(dress, 'existing') }}
                       selectedBySelf={selectedBySelf}
+                      key={`existingDresses${index}`}
                     />)
                 })}
               </TabPane>
@@ -146,3 +149,18 @@ export default class MainSection extends React.Component {
     )
   }
 }
+
+MainSection.propTypes = {
+  newClothes: PropTypes.array.isRequired,
+  existingClothes: PropTypes.array.isRequired,
+  addToSelection: PropTypes.func,
+  removeFromSelection: PropTypes.func,
+  updateNewDress: PropTypes.func,
+  updateNewTokens: PropTypes.func,
+  updateExistingDress: PropTypes.func,
+  updateExistingTokens: PropTypes.func,
+  newTokens: PropTypes.number,
+  existingTokens: PropTypes.number
+}
+
+export default MainSection

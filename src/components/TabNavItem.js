@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavItem, NavLink } from 'reactstrap'
 import classnames from 'classnames'
+import PropTypes from 'prop-types'
 
 const TabNavItem = ({ label, activeTab, onClickHandler }) => (
   <NavItem>
@@ -12,5 +13,11 @@ const TabNavItem = ({ label, activeTab, onClickHandler }) => (
     </NavLink>
   </NavItem>
 )
+
+TabNavItem.propTypes = {
+  label: PropTypes.string.isRequired,
+  activeTab: PropTypes.bool.isRequired,
+  onClickHandler: PropTypes.func.isRequired
+}
 
 export default TabNavItem

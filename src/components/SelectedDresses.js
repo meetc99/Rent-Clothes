@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Form, FormGroup, Input } from 'reactstrap'
 import DressCard from './DressCard'
 
@@ -16,22 +17,20 @@ const SelectedDresses = ({ selectedPresentClothes, removeFromSelection, updateEx
           <Form>
             <FormGroup>
               <Input type='select' name='country' id='country'>
-                <option>Select Country</option>
-                <option selected>Singapore</option>
+                <option>Singapore</option>
                 <option>India</option>
                 <option>Indonesia</option>
               </Input>
             </FormGroup>
             <FormGroup>
               <Input type='select' name='selectionPeriod' id='selectionPeriod'>
-                <option>Select Period</option>
-                <option selected>Current Week</option>
+                <option>Current Week</option>
                 <option>Next Week</option>
               </Input>
             </FormGroup>
           </Form>
 
-          {selectedPresentClothes.map(dress => {
+          {selectedPresentClothes.map((dress, index) => {
             const { title, image } = dress
             return (
               <DressCard
@@ -39,11 +38,21 @@ const SelectedDresses = ({ selectedPresentClothes, removeFromSelection, updateEx
                 imgAlt={title}
                 className='selected-dress'
                 onRemoveSelectedDressHandler={() => { removeDress(dress) }}
+                key={`existingDresses${index}`}
               />
             )
           })}
         </>
   )
+}
+
+SelectedDresses.propTypes = {
+  selectedPresentClothes: PropTypes.array.isRequired,
+  removeFromSelection: PropTypes.func.isRequired,
+  updateExistingTokens: PropTypes.func.isRequired,
+  updateNewTokens: PropTypes.func.isRequired,
+  newTokens: PropTypes.number.isRequired,
+  existingTokens: PropTypes.number.isRequired
 }
 
 export default SelectedDresses

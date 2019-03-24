@@ -1,5 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
+import PropTypes from 'prop-types'
 
 const DressCard = ({ className, onRemoveSelectedDressHandler, imgSrc, imgAlt, selectedBySelf = false, onShortlistHandler, onSelectHandler, isSelected, isShortlisted, isAvailable = true }) => {
   const cardCss = classnames({
@@ -26,6 +27,19 @@ const DressCard = ({ className, onRemoveSelectedDressHandler, imgSrc, imgAlt, se
       </a>}
     </div>
   )
+}
+
+DressCard.propTypes = {
+  imgSrc: PropTypes.string.isRequired,
+  imgAlt: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  onRemoveSelectedDressHandler: PropTypes.func,
+  onShortlistHandler: PropTypes.func,
+  onSelectHandler: PropTypes.func,
+  selectedBySelf: PropTypes.bool,
+  isSelected: PropTypes.bool,
+  isShortlisted: PropTypes.bool,
+  isAvailable: PropTypes.bool
 }
 
 export default DressCard

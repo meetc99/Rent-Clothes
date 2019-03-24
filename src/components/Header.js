@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const Header = ({ existingTokens, newTokens, subscriptionExpiry }) => (
   <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
@@ -34,5 +35,11 @@ const Header = ({ existingTokens, newTokens, subscriptionExpiry }) => (
     </div>
   </nav>
 )
+
+Header.propTypes = {
+  existingTokens: PropTypes.number.isRequired,
+  newTokens: PropTypes.number.isRequired,
+  subscriptionExpiry: PropTypes.string.isRequired
+}
 
 export default Header
