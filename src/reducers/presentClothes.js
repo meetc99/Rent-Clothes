@@ -121,7 +121,6 @@ const defaultState = {
       selected: true,
       shortlisted: false
     }
-
   ],
   selected: [
     {
@@ -139,7 +138,6 @@ const defaultState = {
       selected: true,
       shortlisted: false
     }
-
   ]
 }
 
