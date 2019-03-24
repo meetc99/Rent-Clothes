@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+.navbar-text a {
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline
+    }
+}
+
+.main.container-fluid {
+    padding-top: 2rem; 
+}
+
+.dress-card {
+    border: 1px solid #ddd;
+    overflow: hidden;
+    width: calc(25% - 15px);
+    margin: 10px 10px;
+    float: left;
+    position: relative;
+
+    &.selected-dress {
+        width: calc(50% - 10px);
+        margin: 0 10px 10px;
+
+        &:nth-child(odd) {
+            margin-right: 0px;
+        }
+        &:nth-child(even) {
+            margin-left: 0px;
+        }
+    }
+
+    &.not-available {
+        border: 1px solid red;
+    }
+    &.selected {
+        border: 1px solid blue;
+    }
+
+    &:first-child {
+        margin-left: 0;
+    }
+    &:last-child {
+        margin-right: 0;
+    }
+
+    img.dress-img {
+        max-width: 100%;
+        width: 100%
+    }
+    a.dress-icon {
+        cursor: pointer;
+        position: absolute;
+        left: 0.6rem;
+        top: 0.4rem;
+        font-size: 1.7rem;
+        color: brown;
+        
+        &.shortlist-icon {
+            right: 0.6rem;
+            left: unset;
+        }
+        &:hover {
+            color: darken(brown, 10%);
+        }
+    }
+}
