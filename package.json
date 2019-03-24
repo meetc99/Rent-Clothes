@@ -2,6 +2,7 @@
   "name": "rent-clothes",
   "version": "0.1.0",
   "private": true,
+  "author": {"name": "Tanveer Singh Taneja"},
   "dependencies": {
     "bootstrap": "^4.3.1",
     "fontawesome": "^5.6.3",
